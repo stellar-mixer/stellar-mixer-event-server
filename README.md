@@ -358,14 +358,9 @@ Default testnet configuration:
 
     MIXER_ARCHIVE_BIND_ADDR=0.0.0.0:3001
     MIXER_ARCHIVE_STELLAR_RPC_URL=https://soroban-rpc.testnet.stellar.gateway.fm
-    MIXER_ARCHIVE_MIXER_CONTRACT_ID=CCVPF5JH57FQV535OYMWWY3VXUC53JEMCUPQIBM6NQKI3FZ5BZ47WVRL
-    MIXER_ARCHIVE_START_LEDGER=3388000
+    MIXER_ARCHIVE_MIXER_CONTRACT_ID=...
+    MIXER_ARCHIVE_START_LEDGER=...
     MIXER_ARCHIVE_DB_PATH=./mixer-archive-state.rocksdb
-    MIXER_ARCHIVE_POLL_INTERVAL_MS=2000
-    MIXER_ARCHIVE_BATCH_LEDGERS=100000
-    MIXER_ARCHIVE_EVENTS_LIMIT=100000
-    MIXER_ARCHIVE_EVENT_FINALITY_LAG=8
-    MIXER_ARCHIVE_CATCHUP_SLEEP_MS=300
 
 The default port is 3001.
 
@@ -375,15 +370,15 @@ For a remote deployment, the server can listen on 3001 internally and be exposed
 
 Build:
 
-    cargo build
+    cargo build --release
 
 Run:
 
-    cargo run
+    cargo run --release
 
 Test:
 
-    cargo test
+    cargo test --release
 
 Health check:
 
@@ -392,18 +387,6 @@ Health check:
 Ready check:
 
     curl http://127.0.0.1:3001/ready
-
-State:
-
-    curl http://127.0.0.1:3001/v1/state
-
-Fetch encrypted notes:
-
-    curl "http://127.0.0.1:3001/v1/encrypted-notes?index=0"
-
-Fetch nullifiers:
-
-    curl "http://127.0.0.1:3001/v1/nullifiers?index=0"
 
 ## Trust model
 
